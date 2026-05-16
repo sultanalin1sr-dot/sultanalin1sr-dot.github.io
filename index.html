@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عالم دندون الخاص</title>
+    <title>عالم دندون الذكي</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: #0a0a0c;
             color: #00f2fe;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            text-align: center;
             overflow: hidden;
+            padding: 20px;
         }
-        /* تأثير النيون في الخلفية */
         body::before {
             content: '';
             position: absolute;
@@ -28,56 +25,194 @@
             height: 300px;
             background: rgba(0, 242, 254, 0.1);
             border-radius: 50%;
-            filter: blur(100px);
-            top: 20%;
-            left: 20%;
+            filter: blur(120px);
+            top: 10%;
+            left: 15%;
             z-index: 0;
         }
         .container {
             position: relative;
             z-index: 1;
             border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 40px 30px;
             border-radius: 20px;
-            background: rgba(16, 17, 22, 0.8);
+            background: rgba(16, 17, 22, 0.85);
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15), inset 0 0 15px rgba(0, 242, 254, 0.05);
-            max-width: 90%;
-            width: 400px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+            width: 100%;
+            max-width: 500px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
         }
-        h1 {
+        .header {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+            text-align: center;
+        }
+        .header h1 {
             color: #ffffff;
-            font-size: 2.2rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px #00f2fe;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px #00f2fe;
         }
-        p {
-            color: #94a3b8;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
+        .api-box {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+            display: flex;
+            gap: 10px;
         }
-        .status-badge {
-            display: inline-block;
-            background: rgba(4, 217, 143, 0.1);
-            border: 1px solid #04d98f;
-            color: #04d98f;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
+        .api-box input {
+            flex: 1;
+            background: #000;
+            border: 1px solid #4e4e50;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+        .chat-box {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message {
+            padding: 10px 15px;
+            border-radius: 12px;
+            max-width: 80%;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .user-message {
+            background: #00f2fe;
+            color: #000;
+            align-self: flex-start;
+            font-weight: 500;
+        }
+        .ai-message {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            align-self: flex-end;
+        }
+        .input-box {
+            padding: 15px;
+            border-top: 1px solid rgba(0, 242, 254, 0.2);
+            display: flex;
+            gap: 10px;
+        }
+        .input-box input {
+            flex: 1;
+            background: #111;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            outline: none;
+        }
+        .input-box input:focus {
+            border-color: #00f2fe;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+        .input-box button {
+            background: #00f2fe;
+            color: #000;
+            border: none;
+            padding: 0 20px;
+            border-radius: 10px;
             font-weight: bold;
-            text-shadow: 0 0 8px rgba(4, 217, 143, 0.4);
-            box-shadow: 0 0 10px rgba(4, 217, 143, 0.1);
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>عالم دندون</h1>
-        <p>الموقع شغال ومضبوط 100% على السيرفر.. الحين نقدر نقول تم الإطلاق بنجاح! 🚀</p>
-        <div class="status-badge">الموقع نشط الآن المتصل: سلطان</div>
+        <div class="header">
+            <h1>عالم دندون ماترِكس</h1>
+        </div>
+        
+        <div class="api-box">
+            <input type="password" id="apiKey" placeholder="الزق مفتاح الـ API الخاص بك هنا لتفعيل الذكاء...">
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="message ai-message">مرحباً بك يا سلطان في الـ Matrix. أنا ذكاء دندون الاصطناعي، كيف أقدر أخدمك اليوم؟ 🚀</div>
+        </div>
+
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="اكتب رسالتك هنا الحين..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick=sendMessage()>إرسال</button>
+        </div>
     </div>
+
+    <script>
+        async function sendMessage() {
+            const inputEl = document.getElementById('userInput');
+            const apiKeyEl = document.getElementById('apiKey');
+            const chatBox = document.getElementById('chatBox');
+            
+            const messageText = inputEl.value.trim();
+            const apiKey = apiKeyEl.value.trim();
+
+            if (!messageText) return;
+
+            if (!apiKey) {
+                alert('يا خوي لازم تحط مفتاح الـ API في الخانة فوق عشان يشتغل الذكاء!');
+                return;
+            }
+
+            // عرض رسالة المستخدم
+            const userDiv = document.createElement('div');
+            userDiv.className = 'message user-message';
+            userDiv.textContent = messageText;
+            chatBox.appendChild(userDiv);
+            inputEl.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // عرض رسالة جاري التفكير
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message ai-message';
+            loadingDiv.textContent = 'جاري التفكير في الشبكة... ⚡';
+            chatBox.appendChild(loadingDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                // استدعاء الذكاء الاصطناعي (Gemini API كمثال مباشر من المتصفح)
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: messageText }] }]
+                    })
+                });
+
+                const data = await response.json();
+                chatBox.removeChild(loadingDiv);
+
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'message ai-message';
+                
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    aiDiv.textContent = data.candidates[0].content.parts[0].text;
+                } else {
+                    aiDiv.textContent = 'حصل خطأ في استجابة السيرفر، تأكد من صحة المفتاح.';
+                }
+                
+                chatBox.appendChild(aiDiv);
+            } catch (error) {
+                chatBox.removeChild(loadingDiv);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'message ai-message';
+                errorDiv.textContent = 'ما قدرت أتصل بالذكاء الاصطناعي، شيك على الإنترنت أو المفتاح.';
+                chatBox.appendChild(errorDiv);
+            }
+            
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
 </body>
 </html>
