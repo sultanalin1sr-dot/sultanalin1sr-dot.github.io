@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم دندون الخاص</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0a0a0c;
+            color: #00f2fe;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        /* تأثير النيون في الخلفية */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 242, 254, 0.1);
+            border-radius: 50%;
+            filter: blur(100px);
+            top: 20%;
+            left: 20%;
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: rgba(16, 17, 22, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15), inset 0 0 15px rgba(0, 242, 254, 0.05);
+            max-width: 90%;
+            width: 400px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px #00f2fe;
+            letter-spacing: 1px;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .status-badge {
+            display: inline-block;
+            background: rgba(4, 217, 143, 0.1);
+            border: 1px solid #04d98f;
+            color: #04d98f;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(4, 217, 143, 0.4);
+            box-shadow: 0 0 10px rgba(4, 217, 143, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>عالم دندون</h1>
+        <p>الموقع شغال ومضبوط 100% على السيرفر.. الحين نقدر نقول تم الإطلاق بنجاح! 🚀</p>
+        <div class="status-badge">الموقع نشط الآن المتصل: سلطان</div>
+    </div>
+</body>
+</html>
